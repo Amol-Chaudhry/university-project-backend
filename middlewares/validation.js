@@ -6,7 +6,7 @@ exports.userAuthInputValidation = [
     check("lastName").trim().not().isEmpty().withMessage("Lastname Blank!").isLength({max: 150}).withMessage("Lastname should contain a maximum of 150 characters!"),
     check("userName").trim().not().isEmpty().withMessage("userName Blank!").isLength({min:2, max: 150}).withMessage("Username length must be between 2 and 150 characters!"),
     check("email").isEmail().withMessage("Invalid email!").custom((value, { req }) => {
-        if (!value.endsWith("@student.bham.ac.uk")) throw new Error("Please enter your student email.");
+        if (!value.toLowerCase().endsWith("@student.bham.ac.uk")) throw new Error("Please enter your student email.");
         
         return true;
     }),
