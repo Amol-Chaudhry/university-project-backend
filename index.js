@@ -49,7 +49,7 @@ app.use("/auth", authRouter);
 app.use("/user", userRouter);
 app.use("/posts", postRouter);
 
-const SERVER_PORT = process.env.PORT_NUMBER || 4000;
+const SERVER_PORT = process.env.PORT || 3002;
 
 //Database connect.
 mongoDBConnect();
