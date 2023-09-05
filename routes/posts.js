@@ -18,7 +18,7 @@ router.delete("/:id" ,verifyUser, deletePost );
 
 
 //Handles adding and deleting comments.
-router.patch("/:id/comments", verifyUser, addComment );
+router.post("/:id/comments", verifyUser, addComment );
 router.delete("/:id/comments/:commentId", verifyUser, removeComment );
 
 module.exports =  router;
