@@ -39,9 +39,6 @@ exports.createPost = async (req, res) => {
       const uploadResponse = await cloudinary.uploader.upload(req.file.path);
       
       newPost = new Post({  userId,
-                            firstName: user.firstName, 
-                            lastName: user.lastName,
-                            userName: user.userName,
                             courseTitle: user.courseTitle,
                             description,
                             resource: [
@@ -56,9 +53,6 @@ exports.createPost = async (req, res) => {
     } 
     else {
       newPost = new Post({  userId,
-                            firstName: user.firstName, 
-                            lastName: user.lastName,
-                            userName: user.userName,
                             courseTitle: user.courseTitle,
                             description,
                             resource: [],
