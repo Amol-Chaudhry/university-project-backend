@@ -76,6 +76,16 @@ exports.signin = async (req, res) => {
 
       if(passwordMatched) {
         const jwtToken = jwt.sign({ id: tempUser._id }, process.env.TOKEN_KEY);
+
+        //Chatengine API used for chat services.
+        //Used from: https://chatengine.io/
+        await axios.get("https://api.chatengine.io/users/me/", {
+          headers: {
+            "Project-ID": process.env.CHAT_ENGINE_PROJECT_ID,
+            "User-Name": tempUser.userName,
+            "User-Secret": password,
+          },
+        });
         
         return res.status(responseCode.Ok).json({ id: tempUser._id, 
                                                   email: tempUser.email, 
